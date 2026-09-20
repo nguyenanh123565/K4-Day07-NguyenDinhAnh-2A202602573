@@ -14,31 +14,36 @@
 
 ### Chủ đề (Domain) & Lý Do Chọn
 
-**Chủ đề:** [ví dụ: Customer support FAQ, Luật Việt Nam, công thức nấu ăn, ...]
+**Chủ đề:** Chính sách đổi trả, bảo hành và quy định người bán / người mua trên các nền tảng thương mại điện tử (K4-L3B).
 
 **Tại sao nhóm chọn chủ đề này?**
-> *Viết 2-3 câu:*
+> Nhóm chọn chủ đề chính sách thương mại điện tử nhằm xây dựng hệ thống hỏi đáp (FAQ/RAG) hỗ trợ khách hàng và người bán tra cứu nhanh các quy định đổi trả, thời hạn bảo hành. Dữ liệu có sự phân hóa rõ rệt giữa đối tượng người mua (buyer) và người bán (seller), rất phù hợp để áp dụng và đánh giá hiệu quả của kỹ thuật lọc Metadata Filter trong truy xuất thông tin.
 
 ### Danh sách tài liệu (Data Inventory)
 
 | # | Tên tài liệu | Nguồn (Source URL) | Ngày lấy / Phiên bản | Số ký tự | Metadata đã gán |
 |---|--------------|------------|--------------------|----------|-----------------|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| 1 | Chính sách bảo hành CellphoneS | https://cellphones.com.vn/chinh-sach-bao-hanh | 2026-09-20 / not-stated | 3718 | `doc_id: cps-baohanh-01`, `audience: buyer`, `category: warranty_policy`, `language: vi` |
+| 2 | Bảo hành Điện Máy Xanh | https://dmx.vn/docs/warranty | 2026-09-20 / 2024 | 331 | `doc_id: dmx_both`, `audience: both` |
+| 3 | Đổi trả FPT Shop | https://fpt.vn/docs/return | 2026-09-20 / not-stated | 311 | `doc_id: fpt_buyer`, `audience: buyer` |
+| 4 | Chính sách người mua Shopee | https://shopee.vn/docs/buyer | 2026-09-20 / 1.0 | 323 | `doc_id: sp_buyer`, `audience: buyer` |
+| 5 | Quy định người bán Shopee | https://shopee.vn/docs/seller | 2026-09-20 / 1.0 | 319 | `doc_id: sp_seller`, `audience: seller` |
+| 6 | Đổi trả Tiki | https://tiki.vn/docs/return | 2026-09-20 / not-stated | 310 | `doc_id: tk_buyer`, `audience: buyer` |
 
 **Danh sách kiểm tra quản trị dữ liệu (Data governance checklist):**
-- [ ] Tập tài liệu (Corpus) chỉ chứa nguồn công khai/được phép dùng và không chứa dữ liệu cá nhân, thông tin đăng nhập hoặc tài liệu nội bộ.
-- [ ] Mỗi tài liệu có `source_url`, `retrieved_at`, `document_version` (hoặc ngày hiệu lực) trong metadata.
+- [x] Tập tài liệu (Corpus) chỉ chứa nguồn công khai/được phép dùng và không chứa dữ liệu cá nhân, thông tin đăng nhập hoặc tài liệu nội bộ.
+- [x] Mỗi tài liệu có `source_url`, `retrieved_at`, `document_version` (hoặc ngày hiệu lực) trong metadata.
 
 ### Cấu trúc Metadata (Metadata Schema)
 
 | Trường metadata | Kiểu | Ví dụ giá trị | Tại sao hữu ích cho truy xuất (retrieval)? |
 |----------------|------|---------------|-------------------------------|
-| | | | |
-| | | | |
+| `audience` | `str` | `buyer`, `seller`, `both` | Bắt buộc với biến thể L3B: Giúp lọc chính xác điều khoản theo đối tượng áp dụng (người mua vs người bán), tránh mô hình trả lời nhầm quyền lợi/nghĩa vụ của đối tượng khác. |
+| `source_url` | `str` | `https://shopee.vn/docs/buyer` | Định danh nguồn trích dẫn gốc, phục vụ việc kiểm chứng và trích dẫn câu trả lời chuẩn (gold answer). |
+| `retrieved_at` | `str` | `2026-09-20` | Lưu thời điểm thu thập dữ liệu phục vụ quản trị dữ liệu và theo dõi độ tươi mới của chính sách. |
+| `document_version` | `str` | `1.0`, `2024`, `not-stated` | Xác định phiên bản hoặc năm áp dụng chính sách, tránh xung đột giữa chính sách cũ và mới. |
+| `category` | `str` | `warranty_policy`, `policy` | Phân loại loại hình điều khoản (bảo hành, đổi trả, giải quyết tranh chấp) để thu hẹp không gian tìm kiếm vector. |
+| `language` | `str` | `vi` | Định danh ngôn ngữ của tài liệu phục vụ cho mô hình embedding đa ngôn ngữ hoặc lọc ngôn ngữ. |
 
 ---
 

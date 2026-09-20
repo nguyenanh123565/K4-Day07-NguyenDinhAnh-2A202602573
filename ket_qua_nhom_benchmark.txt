@@ -1,0 +1,54 @@
+=== BAT DAU CHAY BENCHMARK RAG ===
+Tim thay 12 file Markdown.
+-> Nap file chunking_experiment_report.md: 5 chunks.
+-> Nap file rag_system_design.md: 6 chunks.
+-> Nap file vector_store_notes.md: 6 chunks.
+-> Nap file vi_retrieval_notes.md: 4 chunks.
+-> Nap file cps-baohanh-01.md: 8 chunks.
+-> Nap file dmx_both.md: 9 chunks.
+-> Nap file fpt_buyer.md: 1 chunks.
+-> Nap file sp_buyer.md: 1 chunks.
+-> Nap file sp_seller.md: 1 chunks.
+-> Nap file tk_buyer.md: 1 chunks.
+-> Nap file return-refund-policy.md: 2 chunks.
+-> Nap file seller-warranty-policy.md: 2 chunks.
+
+Tong so chunk: 46
+
+--------------------------------------------------
+Query 1: Thời hạn đổi trả tối đa cho đơn hàng mua trực tuyến là bao lâu?
+Gold Answer: Thường là 30 ngày kể từ ngày nhận hàng; lỗi nhà sản xuất lên đến 6 tháng đối với UNIQLO, Long Châu cho phép 30 ngày và 1 năm với máy thiết bị y tế.
+Top-3 Retrieval:
+  [1] Doc: vector_store_notes | Score: 0.3132 | Snippet: hunks). Nếu các đoạn quá nhỏ, chúng có thể mất đi ngữ cảnh và tạo ra các kết quả khớp không hoàn chỉ...
+  [2] Doc: dmx_both | Score: 0.2503 | Snippet: ầu tiên kể từ ngày mua: miễn phí. - Tháng thứ 2 đến tháng thứ 12: phí 10% giá trị hóa đơn/tháng. (VD...
+  [3] Doc: dmx_both | Score: 0.1795 | Snippet: n với mức phí giảm 50%. - Từ tháng thứ 13 trở đi không áp dụng bảo hành cam kết, chỉ áp dụng bảo hàn...
+--------------------------------------------------
+Query 2: Trường hợp nào được miễn phí vận chuyển đổi trả?
+Gold Answer: Nếu lỗi từ nhà bán, nhà sản xuất, hoặc vận chuyển. Biti's nêu rõ lỗi từ cửa hàng hoặc giao sai sản phẩm được miễn phí.
+Top-3 Retrieval:
+  [1] Doc: dmx_both | Score: 0.2558 | Snippet: ền với mức phí giảm 50%. - Từ ngày 01/10/2021, riêng sản phẩm đồng hồ 3 hãng ELIO, SKMEI,SMILE KID s...
+  [2] Doc: dmx_both | Score: 0.2146 | Snippet:  kèm sản phẩm chính - Bảo hành trong vòng 15 ngày (tính từ ngày TGDD/DMX nhận máy ở trạng thái lỗi v...
+  [3] Doc: vi_retrieval_notes | Score: 0.1954 | Snippet: # Ghi chú về Retrieval cho Trợ lý Tri thức Nội bộ  Trong một hệ thống trợ lý tri thức nội bộ, retrie...
+--------------------------------------------------
+Query 3: Sản phẩm đã qua sử dụng hoặc có tem bị rách có được đổi trả không?
+Gold Answer: Thường không. Yêu cầu sản phẩm còn mới, chưa qua sử dụng, nguyên vẹn, chưa giặt, đầy đủ phụ kiện/tem nhãn.
+Top-3 Retrieval:
+  [1] Doc: cps-baohanh-01 | Score: 0.2687 | Snippet: Phone 17  |   iPhone 17 Pro Max  |   iPhone 16  |   iPhone cũ  |   Macbook Neo  |   Điện thoại  |   ...
+  [2] Doc: cps-baohanh-01 | Score: 0.2670 | Snippet: # Chính sách bảo hành CellphoneS  Chính sách bảo hành và đổi trả sản phẩm | CellphoneS  Smember   Vu...
+  [3] Doc: return-refund-policy | Score: 0.2476 | Snippet:  chưa qua sử dụng.  Nhóm cần bổ sung thời hạn cụ thể, điều kiện ngoại lệ (hàng giảm giá, hàng dễ hư ...
+--------------------------------------------------
+Query 4: Khách hàng cần gửi thông báo đổi trả trong thời gian nào nếu nhận thiếu phụ kiện hoặc hàng bị bể vỡ?
+Gold Answer: Với L'Oréal, khách hàng cần thông báo trong vòng 48 giờ kể từ ngày nhận hàng.
+Top-3 Retrieval:
+  [1] Doc: vector_store_notes | Score: 0.2960 | Snippet: # Ghi chú về Vector Store  Vector store là một cơ sở dữ liệu hoặc lớp lưu trữ được thiết kế để giữ c...
+  [2] Doc: cps-baohanh-01 | Score: 0.2789 | Snippet: osee Zagg Zeelot Zhiyun ZTE Ecovacs Kochi Deerma Enchen Oral-B Philips  Xem thêm các hãng khác   Hỏ...
+  [3] Doc: cps-baohanh-01 | Score: 0.1948 | Snippet: in tài khoản  Đăng nhập / Đăng ký  Tra cứu thông tin  Smember  Lịch sử mua hàng  Tra cứu đơn hàng  T...
+--------------------------------------------------
+Query 5: Nếu khách hàng thay đổi quyết định sau khi nhận hàng, có thể yêu cầu trả hàng trên Shopee trong bao lâu không?
+Gold Answer: Gửi yêu cầu trong vòng 15 ngày kể từ ngày giao hàng thành công; thực phẩm tươi sống/đông lạnh là 24 giờ.
+Top-3 Retrieval:
+  [1] Doc: chunking_experiment_report | Score: 0.3442 | Snippet: # Báo cáo Thử nghiệm Chia nhỏ văn bản (Chunking Experiment Report)  ## Mục đích  Báo cáo này tóm tắt...
+  [2] Doc: chunking_experiment_report | Score: 0.3382 | Snippet: i với dữ liệu được thử nghiệm, chia nhỏ đệ quy tạo ra các đoạn văn bản hữu ích nhất quán nhất cho vi...
+  [3] Doc: vector_store_notes | Score: 0.2803 | Snippet: đoạn:  1. **Chia nhỏ tài liệu (Chunk documents)** thành các đơn vị nhỏ hơn để bảo toàn ý nghĩa. 2. *...
+
+=== HOAN TAT BENCHMARK ===

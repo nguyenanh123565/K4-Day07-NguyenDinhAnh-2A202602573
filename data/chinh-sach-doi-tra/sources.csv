@@ -1,0 +1,7 @@
+doc_id,file_path,title,source_url,retrieved_at,document_version,license_or_permission
+cps-baohanh-01,data/chinh-sach-doi-tra/cps-baohanh-01.md,Chính sách bảo hành CellphoneS,https://cellphones.com.vn/chinh-sach-bao-hanh,2026-09-20,not-stated,public
+dmx_both,data/chinh-sach-doi-tra/dmx_both.md,Bảo hành Điện Máy Xanh,https://dmx.vn/docs/warranty,2026-09-20,2024,public
+fpt_buyer,data/chinh-sach-doi-tra/fpt_buyer.md,Đổi trả FPT Shop,https://fpt.vn/docs/return,2026-09-20,not-stated,public
+sp_buyer,data/chinh-sach-doi-tra/sp_buyer.md,Chính sách người mua,https://shopee.vn/docs/buyer,2026-09-20,1.0,public
+sp_seller,data/chinh-sach-doi-tra/sp_seller.md,Quy định người bán,https://shopee.vn/docs/seller,2026-09-20,1.0,public
+tk_buyer,data/chinh-sach-doi-tra/tk_buyer.md,Đổi trả Tiki,https://tiki.vn/docs/return,2026-09-20,not-stated,public
